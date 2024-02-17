@@ -1,3 +1,4 @@
+/*FIRST SAMPLES THAT HELPED UNDERSTAND THE ES6 modules BUG
 document.addEventListener('DOMContentLoaded', () => {
     const appContainer = document.getElementById('app');
 
