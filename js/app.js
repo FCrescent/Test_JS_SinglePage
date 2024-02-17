@@ -1,12 +1,23 @@
-// Import other modules
-import { someFunction } from './utils.js';
-import { Header } from './components/header.js';
-import { Footer } from './components/footer.js';
+console.log('App loaded');
 
-// Initialize your application
+// Import the Footer component
+import { Footer } from './components/footer.js';
+import { Header } from './components/header.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Call functions or initialize components
-    someFunction();
-    const header = new Header();
-    const footer = new Footer();
+    const appContainer = document.getElementById('app');
+
+
+    // Function to render a component onto the DOM
+    function renderComponent(Component) {
+        const component = new Component();
+        appContainer.appendChild(component.render());
+    }
+
+    // Render the Header component
+    renderComponent(Header);
+
+    // Render the Footer component
+    renderComponent(Footer);
 });
+

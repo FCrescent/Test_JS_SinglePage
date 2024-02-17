@@ -1,10 +1,19 @@
+
+console.log('Footer component loaded');
 // Define footer component
-export class Footer {
+class Footer {
     constructor() {
-        this.render();
+        // Initialize component
     }
 
     render() {
-        // Render footer component
+        const footerElement = document.createElement('footer');
+        footerElement.innerHTML = `
+            <p>&copy; Amazing Footer</p>
+        `;
+        return footerElement;
     }
 }
+
+// Export the Footer class
+export { Footer };
