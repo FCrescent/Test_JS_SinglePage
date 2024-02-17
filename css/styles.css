@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+#app {
+    width: 60%; /* Adjust the width as per your preference */
+    margin: 50px auto; /* Center the container horizontally */
+    background-color: #fff; /* White background for the container */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+}
+
+h1 {
+    text-align: center;
+}
