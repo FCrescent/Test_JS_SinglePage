@@ -1,0 +1,21 @@
+/* sub-skill-list.css */
+.sub-skill-list {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.sub-skill-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-skill-list li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sub-skill-list li:hover {
+    background-color: #e0e0e0;
+}

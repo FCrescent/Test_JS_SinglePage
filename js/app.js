@@ -4,6 +4,7 @@ console.log('App loaded');
 import { Footer } from './components/footer.js';
 import { Header } from './components/header.js';
 import { SkillList } from './components/skillList.js';
+import { SubSkillList } from './components/subSkillList.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const appContainer = document.getElementById('app');
@@ -19,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderComponent(Header);
     // Render the SkillList component
     renderComponent(SkillList);
-    // Render the Footer component
+    // Render the SubSkillList component
+    // renderComponent(SubSkillList);
+    // // Render the Footer component
     renderComponent(Footer);
+
 });
 

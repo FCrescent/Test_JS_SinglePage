@@ -1,5 +1,7 @@
 console.log('skillList component loaded');
 
+import { SubSkillList } from './subSkillList.js';
+
 // Define the list of skill categories
 const skillCategories = [
     { name: 'OOP' },
@@ -17,12 +19,12 @@ export class SkillList {
     render() {
         const skillListContainer = document.createElement('div');
         skillListContainer.classList.add('skill-list');
-
+        
         const ul = document.createElement('ul');
         this.skills.forEach(skill => {
             const li = document.createElement('li');
             li.textContent = skill.name;
-            li.addEventListener('click', () => this.handleSkillClick(skill));
+            li.addEventListener('click', () => this.handleSkillClick(li, skill.name));
             ul.appendChild(li);
         });
 
@@ -30,46 +32,19 @@ export class SkillList {
         return skillListContainer;
     }
 
-    handleSkillClick(skill) {
-        // Handle skill click event, you can navigate to sub-skill list or details page
-        console.log(`Selected skill: ${skill.name}`);
+    handleSkillClick(li, skillCategory) {
+        
+        // Remove any existing sub-skill list elements
+        const existingSubSkillLists = document.querySelectorAll('.sub-skill-list');
+        existingSubSkillLists.forEach(element => {
+            element.parentNode.removeChild(element); // Remove the entire parent <div> element
+        });
+        // Trigger rendering of the SubSkillList corresponding to the clicked skillCategory
+        const subSkillListComponent = new SubSkillList(skillCategory);
+        li.appendChild(subSkillListComponent.render());
+        // console.log(skillCategory + ":" + subSkillListComponent.subSkills);
+        console.log(`Contenu du skill ${skillCategory} : ` 
+        + subSkillListComponent.subSkills.map(subskill => subskill.name).join(', '));
     }
+
 }
-
-
-// console.log('skillList component loaded');
-// // Define the SkillList component
-// export class SkillList {
-//     constructor(skills) {
-//         this.skills = skills;
-//     }
-
-//     render() {
-//         const skillListContainer = document.createElement('div');
-//         skillListContainer.classList.add('skill-list');
-
-//         const ul = document.createElement('ul');
-//         this.skills.forEach(skill => {
-//             const li = document.createElement('li');
-//             li.textContent = skill.name;
-//             li.addEventListener('click', () => this.handleSkillClick(skill));
-//             ul.appendChild(li);
-//         });
-
-//         skillListContainer.appendChild(ul);
-//         return skillListContainer;
-//     }
-
-//     handleSkillClick(skill) {
-//         // Handle skill click event, you can navigate to sub-skill list or details page
-//         console.log(`Selected skill: ${skill.name}`);
-//     }
-// }
-
-// // Sample data for skills
-// const skills = [
-//     { name: 'OOP' },
-//     { name: 'Design Patterns' },
-//     { name: 'Vim' },
-//     { name: 'DSA' }
-// ];
