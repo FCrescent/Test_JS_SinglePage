@@ -20,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderComponent(Header);
     // Render the SkillList component
     renderComponent(SkillList);
-    // Render the SubSkillList component
-    // renderComponent(SubSkillList);
+    
     // // Render the Footer component
     renderComponent(Footer);
 

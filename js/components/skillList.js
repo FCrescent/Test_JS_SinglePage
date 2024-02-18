@@ -41,10 +41,20 @@ export class SkillList {
         });
         // Trigger rendering of the SubSkillList corresponding to the clicked skillCategory
         const subSkillListComponent = new SubSkillList(skillCategory);
-        li.appendChild(subSkillListComponent.render());
-        // console.log(skillCategory + ":" + subSkillListComponent.subSkills);
-        console.log(`Contenu du skill ${skillCategory} : ` 
-        + subSkillListComponent.subSkills.map(subskill => subskill.name).join(', '));
+
+        // Sélectionnez l'élément suivant le li
+        const nextElement = li.nextElementSibling;
+
+        // Insérez la div après l'élément li
+        if (nextElement) {
+            nextElement.insertAdjacentElement('beforebegin', subSkillListComponent.render());
+        } else {
+            // Si aucun élément suivant n'existe, insérez la div à la fin du parent de li
+            li.parentElement.appendChild(subSkillListComponent.render());
+        }
+
+        // li.appendChild(subSkillListComponent.render());
+        console.log(`Contenu du skill ${skillCategory} : ` + subSkillListComponent.subSkills.map(subskill => subskill.name).join(', '));
     }
 
 }
